@@ -61,7 +61,7 @@ public class Controller {
             if (fieldHeight.getText().matches("\\d+") && fieldLength.getText().matches("\\d+")) {
                 int height = Integer.parseInt(fieldHeight.getText());
                 int length = Integer.parseInt(fieldLength.getText());
-                if (height < 10 || height > 100 || length < 10 || length > 100) {
+                if (height * length < 100 || height * length > 2000) {
                     notificationLabel.setText("Invalid field size");
                     return false;
                 }

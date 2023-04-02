@@ -328,7 +328,7 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="31.0" layoutY="41.0" text="(min 10x10 max 100x100)" />
+            <Label alignment="CENTER" layoutX="9.0" layoutY="41.0" prefHeight="16.0" prefWidth="220.0" text="(min 100 cells max 2000 cells)" textAlignment="CENTER" />
             <TextField fx:id="fieldHeight" alignment="CENTER" layoutX="39.0" layoutY="69.0" prefHeight="30.0" prefWidth="60.0" promptText="10">
                <font>
                   <Font size="16.0" />
