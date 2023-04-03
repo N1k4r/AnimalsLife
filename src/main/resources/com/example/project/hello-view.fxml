@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -23,23 +24,24 @@
                         <Font size="16.0" />
                      </font>
                   </TextArea>
-                  <TextField fx:id="countIterationTextField" layoutX="1050.0" layoutY="349.0" prefHeight="30.0" prefWidth="60.0">
+                  <TextField fx:id="countIterationTextField" editable="false" layoutX="1050.0" layoutY="349.0" prefHeight="30.0" prefWidth="60.0">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="countPopulationTextField" layoutX="1067.0" layoutY="-1.0" prefHeight="30.0" prefWidth="86.0">
+                  <TextField fx:id="countPopulationTextField" editable="false" layoutX="1067.0" layoutY="-1.0" prefHeight="30.0" prefWidth="86.0">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="actionTextField" layoutX="1050.0" layoutY="387.0" prefHeight="30.0" prefWidth="150.0">
+                  <TextField fx:id="actionTextField" editable="false" layoutX="1050.0" layoutY="387.0" prefHeight="30.0" prefWidth="150.0">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </TextField>
                </children>
             </AnchorPane>
+            <Label layoutX="1156.0" layoutY="376.0" text="Delay" />
             <TextArea fx:id="populationTextArea" editable="false" layoutX="980.0" layoutY="60.0" prefHeight="292.0" prefWidth="280.0" />
             <Label layoutX="980.0" layoutY="406.0" prefHeight="30.0" prefWidth="51.0" text="Action">
                <font>
@@ -61,6 +63,7 @@
                   <Font name="System Bold" size="13.0" />
                </font>
             </Button>
+            <Spinner fx:id="spinner" layoutX="1196.0" layoutY="369.0" prefHeight="30.0" prefWidth="68.0" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="startConfigWindow" layoutX="522.0" layoutY="57.0" prefHeight="712.0" prefWidth="244.0">

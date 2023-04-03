@@ -4,15 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8732910e-32a5-4ba1-b0ee-15fb7ae7a73c" name="Changes" comment="set a limit of 2000 cells">
+    <list default="true" id="8732910e-32a5-4ba1-b0ee-15fb7ae7a73c" name="Changes" comment="fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/Animal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/Cell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/Config.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/Field.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/Field.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/FieldService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/FieldService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/Type.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/Type.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/project/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/project/hello-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -144,12 +138,20 @@
       <option name="project" value="LOCAL" />
       <updated>1680452843224</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="fix">
+      <created>1680523033124</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1680523033124</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add" />
     <MESSAGE value="set a limit of 2000 cells" />
-    <option name="LAST_COMMIT_MESSAGE" value="set a limit of 2000 cells" />
+    <MESSAGE value="fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix" />
   </component>
 </project>

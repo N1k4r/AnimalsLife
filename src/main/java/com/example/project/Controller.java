@@ -1,6 +1,7 @@
 package com.example.project;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.AccessibleRole;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
@@ -10,7 +11,10 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.SneakyThrows;
 
-public class Controller {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class Controller implements Initializable {
     @Getter @Setter
     public static Controller controller;
     @Getter
@@ -53,10 +57,17 @@ public class Controller {
     private AnchorPane startConfigWindow;
 
     @FXML
+    private Spinner<Integer> spinner = new Spinner<>();
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        SpinnerValueFactory<Integer> spinnerValueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(1,10);
+        spinnerValueFactory.setValue(3);
+        spinner.setValueFactory(spinnerValueFactory);
+    }
+
+    @FXML
     private VBox vBox;
-
-
-
 
     @SneakyThrows
     public void setConfig() {
@@ -186,7 +197,7 @@ public class Controller {
                 countPopulationTextField.setText(Field.getField().getNumberOfAnimals());
                 infoTextArea.setText(Field.getField().getStatistic());
                 populationTextArea.setText(Field.getField().getTypePopulation());
-                Thread.sleep(3000);
+                Thread.sleep(spinner.getValue() * 1000);
                 synchronized (Controller.this){
                     Controller.this.notifyAll();
                 }
