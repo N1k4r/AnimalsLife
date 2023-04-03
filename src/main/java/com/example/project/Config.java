@@ -4,24 +4,30 @@ import lombok.Getter;
 import lombok.Setter;
 
 public enum Config {
-    CATERPILLAR(400.0),
-    SHEEP(80.0),
-    GOAT(90.0),
-    MOUSE(350.0),
-    HORSE(70.0),
-    RABBIT(250.0),
+    CATERPILLAR(100.0),
+    SHEEP(70.0),
+    GOAT(65.0),
+    MOUSE(85.0),
+    HORSE(50.0),
+    RABBIT(90.0),
     DEER(30.0),
-    DUCK(110.0),
-    HOG(60.0),
+    DUCK(85.0),
+    HOG(40.0),
     BULL(10.0),
-    WOLF(30.0),
-    FOX(50.0),
-    SNAKE(30.0),
+    WOLF(20.0),
+    FOX(30.0),
+    SNAKE(15.0),
     EAGLE(45.0),
-    BEAR(15.0),
+    BEAR(10.0),
     FIELD_HEIGHT(10),
     FIELD_LENGTH(10),
     FIELD_SIZE(FIELD_HEIGHT.getValue() * FIELD_LENGTH.getValue());
+
+    @Getter @Setter
+    private int value;
+
+    @Getter
+    private double occupancyRate;
 
     Config(int value) {
         this.value = value;
@@ -31,13 +37,7 @@ public enum Config {
         this.occupancyRate = occupancyRate;
     }
 
-    @Getter @Setter
-    private int value;
-
     public void updateSize(){
         this.value = FIELD_LENGTH.value * FIELD_HEIGHT.value;
     }
-
-    @Getter @Setter
-    private double occupancyRate;
 }

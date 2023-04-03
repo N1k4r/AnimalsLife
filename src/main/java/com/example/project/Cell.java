@@ -1,41 +1,39 @@
 package com.example.project;
 
 import lombok.Getter;
-import lombok.SneakyThrows;
-
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Cell implements Runnable{
     @Getter
-    private final Type PLANTS = Type.PLANTS;
+    private double plants = ThreadLocalRandom.current().nextInt(100, 200);
     @Getter
     private final HashMap<Type, List<Animal>> hashMapAnimalListOnCell = new HashMap<>();
 
-    @SneakyThrows
     @Override
     public synchronized void run() {
-        while(Field.getField().getANIMALS_LIST().size() != 0){
-            move();
-            eat();
-            reproduce();
+        while(true){
+            try {
+                move();
+                eat();
+                reproduce();
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
         }
     }
 
-    private void move() {
-        FieldService.action = "Move...";
+    private void move() throws InterruptedException {
         hashMapAnimalListOnCell.forEach((key, value) -> value.forEach(Animal::move));
         waitAnotherThreadComplete();
     }
 
-    private void eat() {
-        FieldService.action = "Eat...";
+    private void eat() throws InterruptedException {
         hashMapAnimalListOnCell.forEach((key, value) -> value.forEach(Animal::eat));
         waitAnotherThreadComplete();
     }
 
-    private void reproduce() {
-        FieldService.action = "Reproduce...";
+    private void reproduce() throws InterruptedException {
         hashMapAnimalListOnCell.forEach((key, value) -> value.forEach(Animal::reproduce));
         hashMapAnimalListOnCell.forEach((key, value) -> value.forEach(x -> x.setReadyForReproduce(true)));
         waitAnotherThreadComplete();
@@ -45,17 +43,22 @@ public class Cell implements Runnable{
         hashMapAnimalListOnCell.clear();
     }
 
-    @SneakyThrows
-    private void waitAnotherThreadComplete(){
+    public void getPlants(double weight){
+        plants -= weight;
+    }
+
+
+    private void waitAnotherThreadComplete() throws InterruptedException {
         CountDownLatch.getCountDownLatch().countDown();
         synchronized (Controller.getController()){
             Controller.getController().wait();
         }
+        plants = Math.min(plants + ThreadLocalRandom.current().nextInt(5,10), 200);
     }
 
     public String getGraphicsCell(){
         if (hashMapAnimalListOnCell.size() == 0)
-            return PLANTS.getGraphics();
+            return Type.PLANTS.getGraphics();
         return hashMapAnimalListOnCell.keySet().stream()
                 .toList().get(ThreadLocalRandom.current().nextInt(hashMapAnimalListOnCell.size())).getGraphics();
     }

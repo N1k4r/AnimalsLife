@@ -21,7 +21,8 @@ public abstract class Animal{
     @Getter @Setter
     private boolean readyForReproduce = true;
     private double kgBeforeFull;
-    private int degreeOfHungry = 0;
+    @Setter
+    private int degreeOfHungry;
 
     public Animal(int positionX, int positionY, long ID, Type TYPE_ANIMAL) {
         this.positionX = positionX;
@@ -29,11 +30,10 @@ public abstract class Animal{
         this.ID = ID;
         this.TYPE_ANIMAL = TYPE_ANIMAL;
         kgBeforeFull = TYPE_ANIMAL.getFoodKg();
+        degreeOfHungry = TYPE_ANIMAL.getDegreeOfHungry();
     }
 
     public void eat(){
-        if (!alive)
-            return;
         Cell cell = Field.getField().getCell(positionX, positionY);
         List<Animal> animals = cell.getHashMapAnimalListOnCell().keySet().stream()
                 .filter(x -> TYPE_ANIMAL.getFoodRation().containsKey(x))
@@ -46,28 +46,35 @@ public abstract class Animal{
                 return;
             }
             int probability = ThreadLocalRandom.current().nextInt(100);
-            if (probability <= TYPE_ANIMAL.getFoodRation().get(animal.getTYPE_ANIMAL())) {
+            if (probability <= TYPE_ANIMAL.getFoodRation().get(animal.getTYPE_ANIMAL()) && animal.isAlive()) {
                 FieldService.animalsDieOfEaten++;
-                Field.getField().getANIMALS_LIST().remove(animal);
+                Field.getField().getAnimalsList().remove(animal);
                 animal.setAlive(false);
                 kgBeforeFull -= animal.getTYPE_ANIMAL().getWeight();
             }
         }
         if (kgBeforeFull > 0 && TYPE_ANIMAL.getFoodRation().containsKey(Type.PLANTS)){
-            if (cell.getPLANTS().getCountOfPlants() >= TYPE_ANIMAL.getFoodKg()){
+            if (cell.getPlants() >= TYPE_ANIMAL.getFoodKg()){
+                int poisonousPlant = ThreadLocalRandom.current().nextInt(100);
+                if (poisonousPlant < 5){
+                    alive = false;
+                    FieldService.animalsDieOfPoisonousPlant++;
+                    return;
+                }
+                cell.getPlants(TYPE_ANIMAL.getFoodKg());
                 setFull();
                 return;
             }
         }
-        if (kgBeforeFull > 0 && ++degreeOfHungry == 3){
-            Field.getField().getANIMALS_LIST().remove(this);
+        if (kgBeforeFull > 0 && --degreeOfHungry == 0){
+            Field.getField().getAnimalsList().remove(this);
             alive = false;
             FieldService.animalsDieOfHungry++;
         }
     }
 
     private void setFull(){
-        degreeOfHungry = 0;
+        degreeOfHungry = TYPE_ANIMAL.getDegreeOfHungry();
         kgBeforeFull = TYPE_ANIMAL.getFoodKg();
     }
 
@@ -87,7 +94,9 @@ public abstract class Animal{
                 if (ThreadLocalRandom.current().nextInt(100) <= TYPE_ANIMAL.getReproducePercent()){
                     int childes = ThreadLocalRandom.current().nextInt(1, animal.getTYPE_ANIMAL().getMaxChildes() + 1);
                     for (int i = 0; i < childes; i++) {
-                        Field.getField().getANIMALS_LIST().add(TYPE_ANIMAL.getNewAnimal(positionX, positionY, ThreadLocalRandom.current().nextLong()));
+                        Animal newAnimal = TYPE_ANIMAL.getNewAnimal(positionX, positionY, ThreadLocalRandom.current().nextLong());
+                        newAnimal.setDegreeOfHungry(degreeOfHungry);
+                        Field.getField().getAnimalsList().add(newAnimal);
                         FieldService.animalsGivenBirth++;
                     }
                     readyForReproduce = false;

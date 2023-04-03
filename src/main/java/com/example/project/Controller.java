@@ -1,6 +1,7 @@
 package com.example.project;
 
 import javafx.fxml.FXML;
+import javafx.scene.AccessibleRole;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
@@ -12,14 +13,20 @@ import lombok.SneakyThrows;
 public class Controller {
     @Getter @Setter
     public static Controller controller;
-    @FXML
-    private TextArea actionTextArea;
+    @Getter
+    public static boolean finishProcess = false;
 
     @FXML
-    private TextArea countIteration;
+    private TextField actionTextField;
 
     @FXML
-    private TextArea countPopulationTextArea;
+    private AnchorPane allTextAnchorPane;
+
+    @FXML
+    private TextField countIterationTextField;
+
+    @FXML
+    private TextField countPopulationTextField;
 
     @FXML
     private TextField fieldHeight;
@@ -29,6 +36,9 @@ public class Controller {
 
     @FXML
     private TextArea fieldTextArea;
+
+    @FXML
+    private Button finishButton;
 
     @FXML
     private TextArea infoTextArea;
@@ -46,13 +56,18 @@ public class Controller {
     private VBox vBox;
 
 
+
+
     @SneakyThrows
     public void setConfig() {
         if (correctFieldSizeConfig() && correctAnimalsConfig()){
+            new Thread(new ThreadController()).start();
             startConfigWindow.setVisible(false);
-            Field.getField().setAnimalsOnField();
-            new Start().start();
+            Thread.sleep(1000);
+            Field.getField().initializationField();
             Field.getField().runThreads();
+            finishButton.setVisible(true);
+            notificationLabel.setText("");
         }
     }
 
@@ -78,6 +93,7 @@ public class Controller {
 
     private boolean correctAnimalsConfig(){
         Config[] valuesConfig = Config.values();
+        Type[] types = Type.values();
         int selectedAnimal = 0;
         for (int i = 0; i < vBox.getChildren().size(); i++){
             HBox hBox = (HBox) vBox.getChildren().get(i);
@@ -86,20 +102,22 @@ public class Controller {
                 if (!textField.getText().equals("")) {
                     if (textField.getText().matches("\\d+")) {
                         int count = Integer.parseInt(textField.getText());
-                        if (count < 1 || count > 400) {
+                        if (count < 1 || count > 100) {
                             notificationLabel.setText(hBox.getChildren().get(0).getAccessibleHelp() + " invalid number");
                             return false;
                         }
                         selectedAnimal++;
-                        valuesConfig[i+1].setOccupancyRate(Integer.parseInt(textField.getText()));
+                        types[i+1].setOccupancy(Integer.parseInt(textField.getText()));
                     } else {
                         notificationLabel.setText(hBox.getChildren().get(0).getAccessibleHelp() + " invalid value");
                         return false;
                     }
-                } else
+                } else{
+                    types[i+1].setOccupancy(valuesConfig[i].getOccupancyRate());
                     selectedAnimal++;
+                }
             } else
-                valuesConfig[i+1].setOccupancyRate(0);
+                types[i+1].setOccupancy(0);
         }
         if (selectedAnimal == 0){
             notificationLabel.setText("Selected 0 animal");
@@ -108,28 +126,74 @@ public class Controller {
         return true;
     }
 
-    class Start extends Thread{
+    public void selectAllCheckBox(){
+        showHideCheckBoxSelection(true);
+    }
+
+    public void deselectAllCheckBox(){
+        showHideCheckBoxSelection(false);
+    }
+
+    public void showHideCheckBoxSelection(boolean value){
+        for (int i = 0; i < vBox.getChildren().size(); i++) {
+            HBox hBox = (HBox) vBox.getChildren().get(i);
+            ((CheckBox) hBox.getChildren().get(0)).setSelected(value);
+        }
+    }
+
+    public void finishProcess() {
+        finishProcess = true;
+        countPopulationTextField.setText("wait...");
+    }
+
+    public void startNewProcess(){
+        Field.getField().getThreadGroup().interrupt();
+        allTextAnchorPane.getChildren().forEach(x -> {
+            if (x.getAccessibleRole().equals(AccessibleRole.TEXT_FIELD))
+                ((TextField) x).clear();
+            else
+                ((TextArea) x).clear();
+        });
+        finishButton.setVisible(false);
+        startConfigWindow.setVisible(true);
+        finishProcess = false;
+    }
+
+    public void clearConfigValue() {
+        for (int i = 0; i < vBox.getChildren().size(); i++) {
+            HBox hBox = (HBox) vBox.getChildren().get(i);
+            ((TextField) hBox.getChildren().get(1)).clear();
+        }
+    }
+
+    class ThreadController implements Runnable{
         @SneakyThrows
         @Override
         public void run() {
+            String[] stringAction = new String[]{"Move", "Eat", "Reproduce"};
+            synchronized (Field.getField()){
+                Field.getField().wait();
+            }
             int i = 0;
-            while(true){
+            while(Field.getField().getAnimalsList().size() != 0 && !finishProcess){
                 synchronized (CountDownLatch.getCountDownLatch()){
                     CountDownLatch.getCountDownLatch().wait();
                 }
                 fieldTextArea.setText(Field.getField().getGraphicsField());
                 Field.getField().updateAnimalsOnCells();
-                countIteration.setText(String.valueOf(i / 3));
-                actionTextArea.setText(FieldService.action);
-                countPopulationTextArea.setText(Field.getField().getNumberOfAnimals());
+                countIterationTextField.setText(String.valueOf(i / 3));
+                actionTextField.setText(stringAction[i % 3]);
+                countPopulationTextField.setText(Field.getField().getNumberOfAnimals());
                 infoTextArea.setText(Field.getField().getStatistic());
                 populationTextArea.setText(Field.getField().getTypePopulation());
-                sleep(5000);
+                Thread.sleep(3000);
                 synchronized (Controller.this){
                     Controller.this.notifyAll();
                 }
                 i++;
             }
+            populationTextArea.setText(!finishProcess ? "All the animals died" : "");
+            startNewProcess();
         }
     }
 }

@@ -4,44 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8732910e-32a5-4ba1-b0ee-15fb7ae7a73c" name="Changes" comment="add">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project/Animal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project/Cell.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project/Config.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project/Controller.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project/CountDownLatch.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project/Field.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project/FieldService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project/HelloApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project/Type.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project/animals/herbivores/Bull.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project/animals/herbivores/Caterpillar.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project/animals/herbivores/Deer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project/animals/herbivores/Duck.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project/animals/herbivores/Goat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project/animals/herbivores/Hog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project/animals/herbivores/Horse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project/animals/herbivores/Mouse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project/animals/herbivores/Rabbit.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project/animals/herbivores/Sheep.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project/animals/predators/Bear.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project/animals/predators/Eagle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project/animals/predators/Fox.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project/animals/predators/Snake.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project/animals/predators/Wolf.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/project/hello-view.fxml" afterDir="false" />
+    <list default="true" id="8732910e-32a5-4ba1-b0ee-15fb7ae7a73c" name="Changes" comment="set a limit of 2000 cells">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/Animal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/Cell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/Config.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/Field.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/Field.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/FieldService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/FieldService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/Type.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/Type.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/project/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/project/hello-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,23 +42,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "/home/kira/IdeaProjects/twork/libs/lombok.jar",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.34012976",
-    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/kira/IdeaProjects/twork/libs/lombok.jar&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.34012976&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.example.project" />
@@ -165,11 +137,19 @@
       <option name="project" value="LOCAL" />
       <updated>1680452265189</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="set a limit of 2000 cells">
+      <created>1680452843224</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1680452843224</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add" />
-    <option name="LAST_COMMIT_MESSAGE" value="add" />
+    <MESSAGE value="set a limit of 2000 cells" />
+    <option name="LAST_COMMIT_MESSAGE" value="set a limit of 2000 cells" />
   </component>
 </project>
