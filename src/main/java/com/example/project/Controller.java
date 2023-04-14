@@ -10,7 +10,6 @@ import javafx.scene.layout.VBox;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.SneakyThrows;
-
 import java.net.URL;
 import java.util.ResourceBundle;
 

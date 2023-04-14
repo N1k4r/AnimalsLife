@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8732910e-32a5-4ba1-b0ee-15fb7ae7a73c" name="Changes" comment="fix">
+    <list default="true" id="8732910e-32a5-4ba1-b0ee-15fb7ae7a73c" name="Changes" comment="add delay">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/Animal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/project/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/project/hello-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project/CountDownLatch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/CountDownLatch.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,13 +146,21 @@
       <option name="project" value="LOCAL" />
       <updated>1680523033124</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="add delay">
+      <created>1680525016251</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1680525016251</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add" />
     <MESSAGE value="set a limit of 2000 cells" />
     <MESSAGE value="fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix" />
+    <MESSAGE value="add delay" />
+    <option name="LAST_COMMIT_MESSAGE" value="add delay" />
   </component>
 </project>

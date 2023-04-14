@@ -14,7 +14,7 @@ public class CountDownLatch {
         return countDownLatch;
     }
 
-    public synchronized void countDown(){
+    public void countDown(){
         count--;
         if (count == 0){
             updateValue();

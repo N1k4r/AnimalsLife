@@ -2,7 +2,6 @@ package com.example.project;
 
 import lombok.Getter;
 import lombok.Setter;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
@@ -59,6 +58,7 @@ public abstract class Animal{
                 if (poisonousPlant < 5){
                     alive = false;
                     FieldService.animalsDieOfPoisonousPlant++;
+                    Field.getField().getAnimalsList().remove(this);
                     return;
                 }
                 cell.getPlants(TYPE_ANIMAL.getFoodKg());
